@@ -1,0 +1,78 @@
+<html>
+    <head>
+       <title>Dojo Survey Index</title>
+       <link rel="stylesheet" type="text/css" href="../static/styles/master.css">
+    </head>
+    <body>
+        <h3>Dojo Survey</h3>
+        <form action='/result' method='post'>
+            Name <input type='text' name='name' value='{{session['name']}}'>
+            Dojo Location <select name="location">
+                <option value="San Jose">San Jose</option>
+                <option value="Washington DC"
+                {%if session['location'] == 'Washington DC'%}
+                selected
+                {%endif%}
+                >Washington DC</option>
+                <option value="Seattle"
+                {%if session['location'] == 'Seattle'%}
+                selected
+                {%endif%}
+                >Seattle</option>
+                <option value="Los Angeles"
+                {%if session['location'] == 'Los Angeles'%}
+                selected
+                {%endif%}
+                >Los Angeles</option>
+                <option value="Chicago"
+                {%if session['location'] == 'Chicago'%}
+                selected
+                {%endif%}
+                >Chicago</option>
+            </select>
+            Favorite Language <select name="language">
+                <option value="Python">Python</option>
+                <option value="Java"
+                {%if session['language'] == 'Java'%}
+                selected
+                {%endif%}
+                >Java</option>
+                <option value="C#"
+                {%if session['language'] == 'C#'%}
+                selected
+                {%endif%}
+                >C#</option>
+                <option value="C++"
+                {%if session['language'] == 'C++'%}
+                selected
+                {%endif%}
+                >C++</option>
+                <option value="C"
+                {%if session['language'] == 'C'%}
+                selected
+                {%endif%}
+                >C</option>
+                <option value="R"
+                {%if session['language'] == 'R'%}
+                selected
+                {%endif%}
+                >R</option>
+                <option value="Esperanto"
+                {%if session['language'] == 'Esperanto'%}
+                selected
+                {%endif%}
+                >Esperanto</option>
+            </select>
+            Comment
+            <textarea name="comment" rows="4" cols="25">{{session['comment']}}</textarea>
+            <input type='submit' value='submit'>
+        </form>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </body>
+</html>
