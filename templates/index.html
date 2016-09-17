@@ -1,71 +1,22 @@
 <html>
     <head>
-       <title>Dojo Survey Index</title>
+       <title>Registration Form</title>
        <link rel="stylesheet" type="text/css" href="../static/styles/master.css">
     </head>
     <body>
-        <h3>Dojo Survey</h3>
-        <form action='/result' method='post'>
-            Name <input type='text' name='name' value='{{session['name']}}'>
-            Dojo Location <select name="location">
-                <option value="San Jose">San Jose</option>
-                <option value="Washington DC"
-                {%if session['location'] == 'Washington DC'%}
-                selected
-                {%endif%}
-                >Washington DC</option>
-                <option value="Seattle"
-                {%if session['location'] == 'Seattle'%}
-                selected
-                {%endif%}
-                >Seattle</option>
-                <option value="Los Angeles"
-                {%if session['location'] == 'Los Angeles'%}
-                selected
-                {%endif%}
-                >Los Angeles</option>
-                <option value="Chicago"
-                {%if session['location'] == 'Chicago'%}
-                selected
-                {%endif%}
-                >Chicago</option>
-            </select>
-            Favorite Language <select name="language">
-                <option value="Python">Python</option>
-                <option value="Java"
-                {%if session['language'] == 'Java'%}
-                selected
-                {%endif%}
-                >Java</option>
-                <option value="C#"
-                {%if session['language'] == 'C#'%}
-                selected
-                {%endif%}
-                >C#</option>
-                <option value="C++"
-                {%if session['language'] == 'C++'%}
-                selected
-                {%endif%}
-                >C++</option>
-                <option value="C"
-                {%if session['language'] == 'C'%}
-                selected
-                {%endif%}
-                >C</option>
-                <option value="R"
-                {%if session['language'] == 'R'%}
-                selected
-                {%endif%}
-                >R</option>
-                <option value="Esperanto"
-                {%if session['language'] == 'Esperanto'%}
-                selected
-                {%endif%}
-                >Esperanto</option>
-            </select>
-            Comment
-            <textarea name="comment" rows="4" cols="25">{{session['comment']}}</textarea>
-            <input type='submit' value='submit'>
+        <h3>Beer-O-The Month Club Registration Form</h3>
+        <form action='/process' method='post'>
+            First Name       <input type='text'     name='firstname'    value='{{session['firstname']}}'>
+            Last Name        <input type='text'     name='lastname'     value='{{session['lastname']}}'>
+            e-mail           <input type="text"     name="email"        value='{{session['email']}}' >
+            DOB     <input id="dob" type="date"     name="dob"          value='{{session['dob']}}' max="{{mindob}}" >
+            Password <span id=small>(8char min, at least 1 lc and 1 uc character)</span>
+                             <input type="password" name="password"     value='{{session['psw']}}' >
+            Confirm Password <input type="password" name="confirmation" value='{{session['pswconfirm']}}' >
+            <input type='submit' value='Submit Registration'>
+        </form>
+        <form action="/reset">
+            <INPUT Type="submit" VALUE="Reset all fields">
         </form>
         {% with messages = get_flashed_messages() %}
             {% if messages %}

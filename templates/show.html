@@ -1,14 +1,14 @@
 <html>
     <head>
-       <title>Dojo Survey Record</title>
+       <title>Beer-O-Month Club Registration Entry</title>
        <link rel="stylesheet" type="text/css" href="../static/styles/master.css">
     </head>
     <body>
-        <h3>Dojo Survey Record</h3>
-        <p><span>Name: </span>{{session['name']}}</p>
-        <p><span>Location: </span>{{session['location']}}</p>
-        <p><span>Language: </span>{{session['language']}}</p>
-        <p><span>Comment: </span>{{session['comment']}}</p>
+        <h3>Beer-O-Month Club Registration Entry</h3>
+        <p><span>First Name: </span>{{session['firstname']}}</p>
+        <p><span>Last Name: </span>{{session['lastname']}}</p>
+        <p><span>DOB: </span>{{session['dob']}}</p>
+        <p><span>e-mail: </span>{{session['email']}}</p>
         <form action="/reset">
             <INPUT Type="submit" VALUE="Return N Reset">
         </form>

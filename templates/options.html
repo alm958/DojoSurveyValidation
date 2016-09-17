@@ -1,0 +1,23 @@
+<html>
+    <head>
+       <title>Other options</title>
+       <link rel="stylesheet" type="text/css" href="../static/styles/master.css">
+    </head>
+    <body>
+        <h2>Sorry Sport</h2>
+        {% with messages = get_flashed_messages(category_filter=["tooyoung"]) %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <h3>Try one of these for now.</h3>
+        <a href="http://fakeyourdrank.com/">Fakeyourdrank.com</a>
+        <a href="http://www.therootbeerstore.com/root-beer-of-the-month.html">rootbeer of the month club</a>
+        <h3>Or....</h3>
+        <form action="/reset">
+            <INPUT Type="submit" VALUE="Return N Register with your older Brother's/Sister's credentials">
+        </form>
+    </body>
+</html>

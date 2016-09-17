@@ -8,3 +8,7 @@ input, select, textarea{
 span{
     font-weight: bolder;
 }
+a{
+    display: block;
+}
+span[id=small]{font-size: 0.7em;}
