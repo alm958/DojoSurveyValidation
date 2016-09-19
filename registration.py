@@ -26,6 +26,7 @@ def process():
     session['dob']        = request.form['dob']
     session['psw']        = request.form['password']
     session['pswconfirm'] = request.form['confirmation']
+    #Pretty good, Anthony, but do you need to save all the form fields into session before you start validating?  You could save code by not putting anything in session until validating the form
     errors = False
     if len(request.form['email']) > 0 and not EMAIL_REGEX.match(request.form['email']):
         errors = True
@@ -37,7 +38,7 @@ def process():
         errors = True
         flash("Invalid last name. Enter valid name. If your name contains numbers or special charaters I am sorry...on many levels")
     for k, v in request.form.items():
-        if len(v) < 1:
+        if len(v) < 1: #I would check the length of all the fields (like you're doing here) first before doing your other checks up top
             errors = True
             flash(k +' is required and cannot be empty')
     if len(request.form['dob']) > 0:
